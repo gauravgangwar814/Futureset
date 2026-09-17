@@ -55,11 +55,17 @@ git push -u origin main
 1. Create a free account at [render.com](https://render.com).
 2. Click **New +** -> **Web Service**.
 3. Connect your GitHub repository.
-4. Configure the settings:
+4. Configure the settings carefully:
    - **Environment:** Node
+   - **Root Directory:** Leave **EMPTY / BLANK** (do NOT enter `src`)
    - **Build Command:** `npm install && npm run build`
    - **Start Command:** `npm start`
 5. Click **Deploy Web Service**! Render will provide you a free live URL (e.g. `futureset.onrender.com`) that automatically updates whenever you push changes to GitHub.
+
+#### 💡 Render Deployment Troubleshooting:
+- **Error: `Failed to resolve /src/main.tsx from index.html`**:
+  - Check the **Root Directory** field in Render settings — it must be completely **BLANK** (empty).
+  - Ensure all files in your GitHub repository are in the root directory (i.e. `index.html`, `package.json`, and the `src` folder are all visible on the repository home page, not nested inside another folder).
 
 ### Alternative Platforms:
 - **Railway.app:** Connect GitHub repo -> auto-detects Node.js build & start scripts.
